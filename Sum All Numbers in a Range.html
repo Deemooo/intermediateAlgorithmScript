@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function sumAll(arr) {
+					var maxNum = Math.max(...arr);
+					var minNum = Math.min(...arr);
+					for(let i = minNum + 1; i < maxNum; i++) {
+						arr.push(i);
+					}
+					var total = arr.reduce(function(sum, item) {
+						return sum + item;
+					}, 0);					
+					return total;
+				}
+				sumAll([1, 4]);				
+			})
+		</script>
+	</body>
+
+</html>

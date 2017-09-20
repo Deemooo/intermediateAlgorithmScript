@@ -12,23 +12,21 @@
 			$(function() {
 
 				function diff(arr1, arr2) {
-					var newArr = [];
 					var conArr = arr1.concat(arr2);
-					conArr.map(function(item1) {
+
+					var newArr = conArr.filter(function(item) {
 						for(let i = 0, len = conArr.length; i < len; i++) {
-							if(item1 === conArr[i] && i != conArr.indexOf(item1)) {
-								newArr = conArr.filter(function(item2) {
-									item1 != item2;
-								})
+							if(item === conArr[i] && i != conArr.indexOf(item)) {
+								conArr.splice(i, 1);
 							} else {
 								continue;
 							}
 						}
-					})
-					return newArr;
-				}
 
-				console.log(diff([5], [1]));
+					});
+
+				}
+				console.log(diff([1, 2, 3, 5], [1, 2, 3, 4, 5]));
 
 			})
 		</script>

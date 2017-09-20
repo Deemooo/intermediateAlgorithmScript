@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function where(collection, source) {
+					var arr = [];
+					// What's in a name?
+					var proArr2 = Object.getOwnPropertyNames(source);
+					proArr2.forEach(function(item) {
+						if(collection[item] === source[item]) {
+							arr.push(collection[item]);
+						}
+
+					});
+
+					return arr;
+				}
+
+				console.log(where([{
+					first: "Romeo",
+					last: "Montague"
+				}, {
+					first: "Mercutio",
+					last: null
+				}, {
+					first: "Tybalt",
+					last: "Capulet"
+				}], {
+					last: "Capulet"
+				}));
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0px;
+				margin: 0px;
+			}
+			
+			body {
+				position: relative;
+				width: 100%;
+				height: 400px;
+			}
+			
+			.container {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -150px;
+				margin-top: -150px;
+				width: 300px;
+				height: 300px;
+			}
+			
+			input[type=text] {
+				width: 240px;
+			}
+			
+			.prompt {
+				display: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="container">
+			<input type="text" placeholder="Input a number:">
+			<input type="button" value="Convert">
+			<div class="prompt"></div>
+		</div>
+
+		<script type="text/javascript">
+			$(function() {
+				function convert(num) {
+					var nums = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+					var romans = ["m", "cm", "d", "cd", "c", "xc", "l", "xl", "x", "ix", "v", "iv", "i"];
+					var str = '';
+					nums.forEach(function(item, index, array) {
+						while(num >= item) {
+							str += romans[index];
+							num -= item;
+						}
+					});
+
+					return str.toUpperCase();
+				}
+				$("input[type=button]").click(function(){
+					var value= $("input[type=text]").val();
+					var convertValue = convert(value);
+					$("input[type=text]").val(convertValue);
+				})
+
+			})
+		</script>
+	</body>
+
+</html>

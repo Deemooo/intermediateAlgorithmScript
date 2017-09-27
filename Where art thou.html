@@ -11,31 +11,27 @@
 		<script type="text/javascript">
 			$(function() {
 				function where(collection, source) {
-					var arr = [];
-					// What's in a name?
-					var proArr2 = Object.getOwnPropertyNames(source);
-					proArr2.forEach(function(item) {
-						if(collection[item] === source[item]) {
-							arr.push(collection[item]);
-						}
-
+					var keys = Object.keys(source);
+					return collection.filter(function(obj) {
+						return keys.every(function(item) {
+							return obj.hasOwnProperty(item) && obj[item] === source[item];
+						});
 					});
-
-					return arr;
 				}
-
 				console.log(where([{
-					first: "Romeo",
-					last: "Montague"
+					"a": 1,
+					"b": 2
 				}, {
-					first: "Mercutio",
-					last: null
+					"a": 1
 				}, {
-					first: "Tybalt",
-					last: "Capulet"
+					"a": 1,
+					"b": 2,
+					"c": 2
 				}], {
-					last: "Capulet"
+					"a": 1,
+					"b": 2
 				}));
+
 			})
 		</script>
 	</body>

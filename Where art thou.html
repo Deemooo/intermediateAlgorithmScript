@@ -12,11 +12,11 @@
 			$(function() {
 				function where(collection, source) {
 					var arr = [];
-					// What's in a name?
+					var proArr1 = Object.getOwnPropertyNames(collection);
 					var proArr2 = Object.getOwnPropertyNames(source);
-					proArr2.forEach(function(item) {
+					proArr2.forEach(function(item,index,proArr2) {
 						if(collection[item] === source[item]) {
-							arr.push(collection[item]);
+							arr.push(collection[index]);
 						}
 
 					});

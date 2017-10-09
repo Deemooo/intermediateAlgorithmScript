@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function spinalCase(str) {
+					return str.replace(/\s|_/g, "-").replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+				}
+				console.log(spinalCase('This Is Spinal Tap'));
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function sumFibs(num) {
+					if(num === 0) {
+						return 0;
+					}
+					var before = 1,
+						behind = 1,
+						current = 0,
+						sum = 2;
+					while(before + behind <= num) {
+						current = before + behind;
+						if(current % 2 === 1) {
+							sum += current;
+						}
+						before = behind;
+						behind = current;
+					}
+					return sum;
+
+				}
+
+				console.log(sumFibs(4000000));
+			})
+		</script>
+	</body>
+
+</html>

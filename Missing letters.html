@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function fearNotLetter(str) {
+					var arr = str.split('');
+					for(var i = 0; i < arr.length-1; i++) {
+						var minus = arr[i + 1].charCodeAt() - arr[i].charCodeAt();
+						if(minus > 1) {
+							return String.fromCharCode(arr[i].charCodeAt() + 1);
+						}
+					}
+				return undefined;
+				}
+
+				console.log(fearNotLetter("abcdf"));
+
+			})
+		</script>
+	</body>
+
+</html>

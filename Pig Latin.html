@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function translate(str) {
+					var yyTest = /^[aeiou]/;
+					if(yyTest.test(str)) {
+						str = str + "way";
+					} else {
+						var arr = str.split("");
+						for(let i = 0, len = arr.length; i < len; i++) {
+							if(yyTest.test(arr[i])) {
+								var count = i;
+								break;
+							} else {
+								continue;
+							}
+							
+						}
+						str = str.substring(count) + str.slice(0, count) + "ay";
+					}
+					return str;
+				}
+
+				console.log(translate("consonant"));
+
+			})
+		</script>
+	</body>
+
+</html>

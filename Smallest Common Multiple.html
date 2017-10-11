@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="{CHARSET}">
+		<script language="javascript" src="http://apps.bdimg.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$(function() {
+				function smallestCommons(arr) {
+					var newArr = [];
+					arr.sort(function(a, b) {
+						return a - b;
+					});
+					for(let i = arr[0]; i <= arr[arr.length - 1]; i++) {
+						newArr.push(i);
+					}
+					var max = newArr.reduce(function(a, b) {
+						return a * b;
+					})
+					for(let k = newArr[newArr.length - 1]; k <= max; k++) {
+						if(newArr.every(function(item) {
+								return k % item === 0 ? true : false;
+							})) {
+							return k;
+						} else {
+							continue;
+						}
+					}
+
+				}
+
+				console.log(smallestCommons([5, 1]));
+
+			})
+		</script>
+	</body>
+
+</html>
